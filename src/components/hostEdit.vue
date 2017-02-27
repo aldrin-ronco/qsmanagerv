@@ -17,21 +17,21 @@
       </div>
       <div class="form-group">
         <label for="IP">IP:</label>
-        <input type="text" :value="host" @change="editHost($event)" placeholder="IP Address" class="form-control">
+        <input type="text" :value="host" @input="editHost($event)" placeholder="IP Address" class="form-control">
       </div>
       <div class="form-group">
         <label for="domain">Dominio:</label>
-        <input type="text" :value="domain" @change="editDomain($event)" placeholder="domain" class="form-control">
+        <input type="text" :value="domain" @input="editDomain($event)" placeholder="domain" class="form-control">
       </div>
       <div class="form-group">
         <label for="userName">Usuario:</label>
-        <input type="text" :value="userName" @change="editUserName($event)" placeholder="username" class="form-control">
+        <input type="text" :value="userName" @input="editUserName($event)" placeholder="username" class="form-control">
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
-        <input type="text" :value="pwd" @change="editPwd($event)" placeholder="password" class="form-control">
+        <input type="text" :value="pwd" @input="editPwd($event)" placeholder="password" class="form-control">
       </div>
-      <input type="submit" value="Guardar" class="btn btn-primary"/>
+      <input type="submit" value="Guardar" class="btn btn-primary" v-show="canSave"/>
       <router-link :to="{ name : 'hosts' }" class="btn btn-default">Regresar</router-link>
      </div>
   </form>
@@ -52,7 +52,14 @@ export default {
       'userName',
       'domain',
       'description'
-    ])
+    ]),
+    canSave () {
+      if (this.host.trim() && this.pwd.trim() && this.userName.trim() && this.domain.trim() && this.description.trim()) {
+        return true
+      } else {
+        return false
+      }
+    }
   },
   methods: {
     editDescription (e) {
