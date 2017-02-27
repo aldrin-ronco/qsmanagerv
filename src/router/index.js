@@ -19,6 +19,7 @@ const routes = [
   { path: '/hosts/new', component: HostEdit, name: 'host-new' },
   { path: '/hosts/:id/edit', component: HostEdit, name: 'host-edit' }
 ]
+
 export default new Router({
   routes
 })
