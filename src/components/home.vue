@@ -1,17 +1,12 @@
 <template>
   <div>
     <p>Bienvenido a Quality Host's Manager</p>
-    <p>User {{ user }}</p>
+    <p>User {{ $router.query }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    user () {
-      return this.$route.query.user
-    }
-  }
 }
 </script>
 
