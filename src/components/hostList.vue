@@ -75,7 +75,7 @@ export default {
 
 <style lang="css" scoped>
   .row {
-    margin-top: 10px;
+    margin-top: 15px;
   },
   #hostList {
     max-width: 1000px;

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HostList from '@/components/hostList'
 import HostEdit from '@/components/hostEdit'
+import Home from '@/components/home'
 
 // import Hello from '@/components/Hello'
 
@@ -11,7 +12,7 @@ import HostEdit from '@/components/hostEdit'
 
 Vue.use(Router)
 
-const Home = { template: '<p style="text-align:center">Bienvenido a Quality Manager</p>' }
+// const Home = { template: '<p style="text-align:center">Bienvenido a Quality Manager</p>' }
 
 const routes = [
   { path: '/', component: Home, name: 'home' },
