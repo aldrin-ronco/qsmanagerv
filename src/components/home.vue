@@ -1,6 +1,8 @@
 <template>
-  <p>Bienvenido a Quality Host's Manager</p>
-  <p>User {{ user }}</p>
+  <div>
+    <p>Bienvenido a Quality Host's Manager</p>
+    <p>User {{ user }}</p>
+  </div>
 </template>
 
 <script>
