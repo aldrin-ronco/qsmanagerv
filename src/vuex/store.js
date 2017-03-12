@@ -16,7 +16,8 @@ const state = {
     userName: '',
     pwd: '',
     description: '',
-    domain: ''
+    domain: '',
+    companyLogo: ''
   }
 }
 
@@ -44,6 +45,9 @@ const getters = {
   },
   domain (state) {
     return state.model.domain
+  },
+  companyLogo (state) {
+    return state.model.companyLogo
   }
 }
 
@@ -67,6 +71,9 @@ const mutations = {
   EDIT_DOMAIN (state, domain) {
     state.model.domain = domain
   },
+  EDIT_COMPANY_LOGO (state, location) {
+    state.model.companyLogo = location
+  },
   SET_HOST_DETAILS (state, host) {
     state.model.id = host ? host.id : 0
     state.model.host = host ? host.host : ''
@@ -74,6 +81,7 @@ const mutations = {
     state.model.pwd = host ? host.pwd : ''
     state.model.description = host ? host.description : ''
     state.model.domain = host ? host.domain : ''
+    state.model.companyLogo = host ? host.companyLogo : ''
   },
   DELETE_HOST (state, host) {
     axios.delete(`${appConfig.baseUrl}/hosts/${host.id}`)
