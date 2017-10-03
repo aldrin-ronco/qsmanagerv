@@ -25,9 +25,9 @@
               <td><router-link :to="{ name : 'host-edit', params : {id : host.id}}" @click.native.native="set_host_details(host)">{{host.description}}</router-link></td>
       				<!-- <td>{{host.description}}</td> -->
               <!-- <td @Click="view_host_details(host)">{{host.description}}</td> -->
-      				<td>{{host.host}}</td>
-      				<td>{{host.userName}}</td>
-      				<td>{{host.pwd}}</td>
+      				<td>{{host.ip}}</td>
+      				<td>{{host.sql_user_name}}</td>
+      				<td>{{host.sql_pwd}}</td>
       				<td>{{host.domain}}</td>
               <td><a href="#" @click.prevent="deleteHost(host)" class="glyphicon glyphicon-remove"></a></td>
       				<!-- <td><a href="#" {{action 'delete' host}}><span class="glyphicon glyphicon-remove"></span></a></td> -->

@@ -5,13 +5,13 @@
     <form v-on:submit.prevent="save">
 
         <!-- Company Logo -->
-        <div v-if="!companyLogo && id">
+        <div v-if="!company_logo && id">
           <label class="btn btn-default btn-file"> Agregar Logo
-            <input type="file" name="companyLogo" value="" style="display:none;" @change="onFileChange($event)">
+            <input type="file" name="company_logo" value="" style="display:none;" @change="onFileChange($event)">
           </label>
         </div>
-        <div v-if="companyLogo  && id">
-          <img :src="companyLogo"/>
+        <div v-if="company_logo  && id">
+          <img :src="company_logo"/>
           <button type="button" name="btnRemoveLogo" @click="removeLogo($event)" class="btn btn-default">Remover Logo</button>
         </div>
 
@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
           <label for="IP">IP:</label>
-          <input type="text" :value="host" @input="editHost($event)" placeholder="IP Address" class="form-control">
+          <input type="text" :value="ip" @input="editHost($event)" placeholder="IP Address" class="form-control">
         </div>
         <div class="form-group">
           <label for="port">Puerto:</label>
@@ -41,12 +41,12 @@
           <input type="text" :value="domain" @input="editDomain($event)" placeholder="domain" class="form-control">
         </div>
         <div class="form-group">
-          <label for="userName">Usuario:</label>
-          <input type="text" :value="userName" @input="editUserName($event)" placeholder="username" class="form-control">
+          <label for="sql_user_name">Usuario:</label>
+          <input type="text" :value="sql_user_name" @input="editUserName($event)" placeholder="sql user name" class="form-control">
         </div>
         <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="text" :value="pwd" @input="editPwd($event)" placeholder="password" class="form-control">
+          <label for="sql_pwd">Password:</label>
+          <input type="text" :value="sql_pwd" @input="editPwd($event)" placeholder="password" class="form-control">
         </div>
         <input type="submit" value="Guardar" class="btn btn-primary" v-show="canSave"/>
         <router-link :to="{ name : 'hosts' }" class="btn btn-default">Regresar</router-link>
@@ -67,16 +67,16 @@ export default {
       'hosts',
       'model',
       'id',
-      'host',
-      'pwd',
-      'userName',
+      'ip',
+      'sql_pwd',
+      'sql_user_name',
       'domain',
       'description',
-      'companyLogo',
+      'company_logo',
       'port'
     ]),
     canSave () {
-      if (this.host.trim() && this.pwd.trim() && this.userName.trim() && this.domain.trim() && this.description.trim()) {
+      if (this.ip.trim() && this.sql_pwd.trim() && this.sql_user_name.trim() && this.domain.trim() && this.description.trim()) {
         return true
       } else {
         return false
@@ -87,8 +87,8 @@ export default {
     editDescription (e) {
       this.$store.commit('EDIT_DESCRIPTION', e.target.value)
     },
-    editHost (e) {
-      this.$store.commit('EDIT_HOST', e.target.value)
+    editIp (e) {
+      this.$store.commit('EDIT_IP', e.target.value)
     },
     editPort (e) {
       this.$store.commit('EDIT_PORT', e.target.value)
@@ -97,10 +97,10 @@ export default {
       this.$store.commit('EDIT_DOMAIN', e.target.value)
     },
     editUserName (e) {
-      this.$store.commit('EDIT_USERNAME', e.target.value)
+      this.$store.commit('EDIT_SQL_USER_NAME', e.target.value)
     },
     editPwd (e) {
-      this.$store.commit('EDIT_PWD', e.target.value)
+      this.$store.commit('EDIT_SQL_PWD', e.target.value)
     },
     save () {
       let vm = this

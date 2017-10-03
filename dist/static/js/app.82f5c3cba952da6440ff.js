@@ -184,12 +184,12 @@ var state = {
   hosts: [],
   model: {
     id: 0,
-    host: '',
-    userName: '',
-    pwd: '',
+    ip: '',
+    sql_user_name: '',
+    sql_pwd: '',
     description: '',
     domain: '',
-    companyLogo: '',
+    company_logo: '',
     port: 0
   }
 };
@@ -204,14 +204,14 @@ var getters = {
   id: function id(state) {
     return state.model.id;
   },
-  host: function host(state) {
-    return state.model.host;
+  ip: function ip(state) {
+    return state.model.ip;
   },
-  userName: function userName(state) {
-    return state.model.userName;
+  sql_user_name: function sql_user_name(state) {
+    return state.model.sql_user_name;
   },
-  pwd: function pwd(state) {
-    return state.model.pwd;
+  sql_pwd: function sql_pwd(state) {
+    return state.model.sql_pwd;
   },
   description: function description(state) {
     return state.model.description;
@@ -219,8 +219,8 @@ var getters = {
   domain: function domain(state) {
     return state.model.domain;
   },
-  companyLogo: function companyLogo(state) {
-    return state.model.companyLogo;
+  company_logo: function company_logo(state) {
+    return state.model.company_logo;
   },
   port: function port(state) {
     return state.model.port;
@@ -231,17 +231,17 @@ var mutations = {
   EDIT_HOSTS: function EDIT_HOSTS(state, hosts) {
     state.hosts = hosts;
   },
-  EDIT_HOST: function EDIT_HOST(state, host) {
-    state.model.host = host;
+  EDIT_IP: function EDIT_IP(state, ip) {
+    state.model.ip = ip;
   },
   EDIT_PORT: function EDIT_PORT(state, port) {
     state.model.port = port;
   },
-  EDIT_USERNAME: function EDIT_USERNAME(state, username) {
-    state.model.userName = username;
+  EDIT_SQL_USER_NAME: function EDIT_SQL_USER_NAME(state, sql_user_name) {
+    state.model.userName = sql_user_name;
   },
-  EDIT_PWD: function EDIT_PWD(state, pwd) {
-    state.model.pwd = pwd;
+  EDIT_SQL_PWD: function EDIT_SQL_PWD(state, sql_pwd) {
+    state.model.sql_pwd = sql_pwd;
   },
   EDIT_DESCRIPTION: function EDIT_DESCRIPTION(state, description) {
     state.model.description = description;
@@ -250,16 +250,16 @@ var mutations = {
     state.model.domain = domain;
   },
   EDIT_COMPANY_LOGO: function EDIT_COMPANY_LOGO(state, location) {
-    state.model.companyLogo = location;
+    state.model.company_logo = location;
   },
   SET_HOST_DETAILS: function SET_HOST_DETAILS(state, host) {
     state.model.id = host ? host.id : 0;
-    state.model.host = host ? host.host : '';
-    state.model.userName = host ? host.userName : '';
-    state.model.pwd = host ? host.pwd : '';
+    state.model.ip = host ? host.ip : '';
+    state.model.sql_user_name = host ? host.sql_user_name : '';
+    state.model.sql_pwd = host ? host.sql_pwd : '';
     state.model.description = host ? host.description : '';
     state.model.domain = host ? host.domain : '';
-    state.model.companyLogo = host ? host.companyLogo : '';
+    state.model.company_logo = host ? host.company_logo : '';
     state.model.port = host ? host.port : 0;
   },
   DELETE_HOST: function DELETE_HOST(state, host) {
@@ -1654,9 +1654,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapGetters */])(['hosts', 'model', 'id', 'host', 'pwd', 'userName', 'domain', 'description', 'companyLogo', 'port']), {
+  computed: __WEBPACK_IMPORTED_MODULE_0_babel_runtime_helpers_extends___default()({}, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapGetters */])(['hosts', 'model', 'id', 'ip', 'sql_pwd', 'sql_user_name', 'domain', 'description', 'company_logo', 'port']), {
     canSave: function canSave() {
-      if (this.host.trim() && this.pwd.trim() && this.userName.trim() && this.domain.trim() && this.description.trim()) {
+      if (this.ip.trim() && this.sql_pwd.trim() && this.sql_user_name.trim() && this.domain.trim() && this.description.trim()) {
         return true;
       } else {
         return false;
@@ -1667,8 +1667,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     editDescription: function editDescription(e) {
       this.$store.commit('EDIT_DESCRIPTION', e.target.value);
     },
-    editHost: function editHost(e) {
-      this.$store.commit('EDIT_HOST', e.target.value);
+    editIp: function editIp(e) {
+      this.$store.commit('EDIT_IP', e.target.value);
     },
     editPort: function editPort(e) {
       this.$store.commit('EDIT_PORT', e.target.value);
@@ -1677,10 +1677,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.$store.commit('EDIT_DOMAIN', e.target.value);
     },
     editUserName: function editUserName(e) {
-      this.$store.commit('EDIT_USERNAME', e.target.value);
+      this.$store.commit('EDIT_SQL_USER_NAME', e.target.value);
     },
     editPwd: function editPwd(e) {
-      this.$store.commit('EDIT_PWD', e.target.value);
+      this.$store.commit('EDIT_SQL_PWD', e.target.value);
     },
     save: function save() {
       var vm = this;
@@ -2196,7 +2196,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           _vm.set_host_details(host)
         }
       }
-    }, [_vm._v(_vm._s(host.description))])], 1), _vm._v(" "), _c('td', [_vm._v(_vm._s(host.host))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(host.userName))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(host.pwd))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(host.domain))]), _vm._v(" "), _c('td', [_c('a', {
+    }, [_vm._v(_vm._s(host.description))])], 1), _vm._v(" "), _c('td', [_vm._v(_vm._s(host.ip))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(host.sql_user_name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(host.sql_pwd))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(host.domain))]), _vm._v(" "), _c('td', [_c('a', {
       staticClass: "glyphicon glyphicon-remove",
       attrs: {
         "href": "#"
@@ -2227,7 +2227,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.save($event)
       }
     }
-  }, [(!_vm.companyLogo && _vm.id) ? _c('div', [_c('label', {
+  }, [(!_vm.company_logo && _vm.id) ? _c('div', [_c('label', {
     staticClass: "btn btn-default btn-file"
   }, [_vm._v(" Agregar Logo\n            "), _c('input', {
     staticStyle: {
@@ -2235,7 +2235,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     attrs: {
       "type": "file",
-      "name": "companyLogo",
+      "name": "company_logo",
       "value": ""
     },
     on: {
@@ -2243,9 +2243,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.onFileChange($event)
       }
     }
-  })])]) : _vm._e(), _vm._v(" "), (_vm.companyLogo && _vm.id) ? _c('div', [_c('img', {
+  })])]) : _vm._e(), _vm._v(" "), (_vm.company_logo && _vm.id) ? _c('div', [_c('img', {
     attrs: {
-      "src": _vm.companyLogo
+      "src": _vm.company_logo
     }
   }), _vm._v(" "), _c('button', {
     staticClass: "btn btn-default",
@@ -2316,7 +2316,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "placeholder": "IP Address"
     },
     domProps: {
-      "value": _vm.host
+      "value": _vm.ip
     },
     on: {
       "input": function($event) {
@@ -2367,16 +2367,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-group"
   }, [_c('label', {
     attrs: {
-      "for": "userName"
+      "for": "sql_user_name"
     }
   }, [_vm._v("Usuario:")]), _vm._v(" "), _c('input', {
     staticClass: "form-control",
     attrs: {
       "type": "text",
-      "placeholder": "username"
+      "placeholder": "sql user name"
     },
     domProps: {
-      "value": _vm.userName
+      "value": _vm.sql_user_name
     },
     on: {
       "input": function($event) {
@@ -2387,7 +2387,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "form-group"
   }, [_c('label', {
     attrs: {
-      "for": "pwd"
+      "for": "sql_pwd"
     }
   }, [_vm._v("Password:")]), _vm._v(" "), _c('input', {
     staticClass: "form-control",
@@ -2396,7 +2396,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "placeholder": "password"
     },
     domProps: {
-      "value": _vm.pwd
+      "value": _vm.sql_pwd
     },
     on: {
       "input": function($event) {
@@ -2427,4 +2427,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ]),[401]);
-//# sourceMappingURL=app.0eb0e65fec9f82567293.js.map
+//# sourceMappingURL=app.82f5c3cba952da6440ff.js.map

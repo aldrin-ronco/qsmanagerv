@@ -12,12 +12,12 @@ const state = {
   hosts: [],
   model: {
     id: 0,
-    host: '',
-    userName: '',
-    pwd: '',
+    ip: '',
+    sql_user_name: '',
+    sql_pwd: '',
     description: '',
     domain: '',
-    companyLogo: '',
+    company_logo: '',
     port: 0
   }
 }
@@ -32,14 +32,14 @@ const getters = {
   id (state) {
     return state.model.id
   },
-  host (state) {
-    return state.model.host
+  ip (state) {
+    return state.model.ip
   },
-  userName (state) {
-    return state.model.userName
+  sql_user_name (state) {
+    return state.model.sql_user_name
   },
-  pwd (state) {
-    return state.model.pwd
+  sql_pwd (state) {
+    return state.model.sql_pwd
   },
   description (state) {
     return state.model.description
@@ -47,8 +47,8 @@ const getters = {
   domain (state) {
     return state.model.domain
   },
-  companyLogo (state) {
-    return state.model.companyLogo
+  company_logo (state) {
+    return state.model.company_logo
   },
   port (state) {
     return state.model.port
@@ -60,17 +60,17 @@ const mutations = {
   EDIT_HOSTS (state, hosts) {
     state.hosts = hosts
   },
-  EDIT_HOST (state, host) {
-    state.model.host = host
+  EDIT_IP (state, ip) {
+    state.model.ip = ip
   },
   EDIT_PORT (state, port) {
     state.model.port = port
   },
-  EDIT_USERNAME (state, username) {
-    state.model.userName = username
+  EDIT_SQL_USER_NAME (state, sql_user_name) {
+    state.model.userName = sql_user_name
   },
-  EDIT_PWD (state, pwd) {
-    state.model.pwd = pwd
+  EDIT_SQL_PWD (state, sql_pwd) {
+    state.model.sql_pwd = sql_pwd
   },
   EDIT_DESCRIPTION (state, description) {
     state.model.description = description
@@ -79,16 +79,16 @@ const mutations = {
     state.model.domain = domain
   },
   EDIT_COMPANY_LOGO (state, location) {
-    state.model.companyLogo = location
+    state.model.company_logo = location
   },
   SET_HOST_DETAILS (state, host) {
     state.model.id = host ? host.id : 0
-    state.model.host = host ? host.host : ''
-    state.model.userName = host ? host.userName : ''
-    state.model.pwd = host ? host.pwd : ''
+    state.model.ip = host ? host.ip : ''
+    state.model.sql_user_name = host ? host.sql_user_name : ''
+    state.model.sql_pwd = host ? host.sql_pwd : ''
     state.model.description = host ? host.description : ''
     state.model.domain = host ? host.domain : ''
-    state.model.companyLogo = host ? host.companyLogo : ''
+    state.model.company_logo = host ? host.company_logo : ''
     state.model.port = host ? host.port : 0
   },
   DELETE_HOST (state, host) {
