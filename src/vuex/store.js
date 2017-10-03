@@ -17,7 +17,8 @@ const state = {
     pwd: '',
     description: '',
     domain: '',
-    companyLogo: ''
+    companyLogo: '',
+    port: 0
   }
 }
 
@@ -48,6 +49,9 @@ const getters = {
   },
   companyLogo (state) {
     return state.model.companyLogo
+  },
+  port (state) {
+    return state.model.port
   }
 }
 
@@ -58,6 +62,9 @@ const mutations = {
   },
   EDIT_HOST (state, host) {
     state.model.host = host
+  },
+  EDIT_PORT (state, port) {
+    state.model.port = port
   },
   EDIT_USERNAME (state, username) {
     state.model.userName = username
@@ -82,6 +89,7 @@ const mutations = {
     state.model.description = host ? host.description : ''
     state.model.domain = host ? host.domain : ''
     state.model.companyLogo = host ? host.companyLogo : ''
+    state.model.port = host ? host.port : 0
   },
   DELETE_HOST (state, host) {
     axios.delete(`${appConfig.baseUrl}/hosts/${host.id}`)

@@ -33,6 +33,10 @@
           <input type="text" :value="host" @input="editHost($event)" placeholder="IP Address" class="form-control">
         </div>
         <div class="form-group">
+          <label for="port">Puerto:</label>
+          <input type="text" :value="port" @input="editPort($event)" placeholder="Port" class="form-control">
+        </div>
+        <div class="form-group">
           <label for="domain">Dominio:</label>
           <input type="text" :value="domain" @input="editDomain($event)" placeholder="domain" class="form-control">
         </div>
@@ -68,7 +72,8 @@ export default {
       'userName',
       'domain',
       'description',
-      'companyLogo'
+      'companyLogo',
+      'port'
     ]),
     canSave () {
       if (this.host.trim() && this.pwd.trim() && this.userName.trim() && this.domain.trim() && this.description.trim()) {
@@ -84,6 +89,9 @@ export default {
     },
     editHost (e) {
       this.$store.commit('EDIT_HOST', e.target.value)
+    },
+    editPort (e) {
+      this.$store.commit('EDIT_PORT', e.target.value)
     },
     editDomain (e) {
       this.$store.commit('EDIT_DOMAIN', e.target.value)
