@@ -30,7 +30,7 @@
         </div>
         <div class="form-group">
           <label for="IP">IP:</label>
-          <input type="text" :value="ip" @input="editHost($event)" placeholder="IP Address" class="form-control">
+          <input type="text" :value="ip" @input="editIp($event)" placeholder="IP Address" class="form-control">
         </div>
         <div class="form-group">
           <label for="port">Puerto:</label>
@@ -88,6 +88,9 @@ export default {
       this.$store.commit('EDIT_DESCRIPTION', e.target.value)
     },
     editIp (e) {
+      this.$store.commit('EDIT_IP', e.target.value)
+    },
+    editHost (e) {
       this.$store.commit('EDIT_IP', e.target.value)
     },
     editPort (e) {

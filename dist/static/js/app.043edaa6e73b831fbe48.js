@@ -1670,6 +1670,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     editIp: function editIp(e) {
       this.$store.commit('EDIT_IP', e.target.value);
     },
+    editHost: function editHost(e) {
+      this.$store.commit('EDIT_IP', e.target.value);
+    },
     editPort: function editPort(e) {
       this.$store.commit('EDIT_PORT', e.target.value);
     },
@@ -2320,7 +2323,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     },
     on: {
       "input": function($event) {
-        _vm.editHost($event)
+        _vm.editIp($event)
       }
     }
   })]), _vm._v(" "), _c('div', {
@@ -2427,4 +2430,4 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ })
 ]),[401]);
-//# sourceMappingURL=app.82f5c3cba952da6440ff.js.map
+//# sourceMappingURL=app.043edaa6e73b831fbe48.js.map
